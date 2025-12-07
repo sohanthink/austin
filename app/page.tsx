@@ -35,6 +35,25 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50">
+      {/* Page Header Section */}
+      <section className="bg-gradient-to-b from-blue-600 to-blue-700 text-white py-12 md:py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
+              Wizard's Wrath
+            </h1>
+            <p className="text-xl md:text-2xl font-semibold mb-4 text-blue-100">
+              by Austin Ho
+            </p>
+            <p className="text-base md:text-lg lg:text-xl text-blue-50 max-w-2xl mx-auto leading-relaxed">
+              A magical adventure book created by a 10-year-old author from Hong
+              Kong. Every purchase supports Impact HK, helping the homeless and
+              those at risk of homelessness in our community.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Welcome Banner Section */}
       <section className="bg-white py-8 md:py-12">
         <div className="container mx-auto px-4">
@@ -138,9 +157,16 @@ export default function Home() {
       {/* Video Section */}
       <section className="container mx-auto px-4 py-12 md:py-16">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6 md:mb-10">
-            Meet Austin
-          </h2>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+              Meet Austin
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Watch Austin introduce himself and share his passion for creating
+              stories that make a difference. Learn more about the inspiration
+              behind Wizard's Wrath and his mission to help those in need.
+            </p>
+          </div>
           <div className="aspect-video rounded-xl overflow-hidden shadow-2xl border-4 border-white">
             <iframe
               width="100%"
@@ -183,7 +209,7 @@ export default function Home() {
                   value={formData.firstName}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 placeholder:text-gray-400"
                 />
                 <input
                   type="text"
@@ -192,7 +218,7 @@ export default function Home() {
                   value={formData.lastName}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 placeholder:text-gray-400"
                 />
               </div>
             </div>
@@ -209,7 +235,7 @@ export default function Home() {
                 placeholder="Phone Number"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 placeholder:text-gray-400"
               />
             </div>
 
@@ -222,7 +248,7 @@ export default function Home() {
                 name="numberOfCopies"
                 value={formData.numberOfCopies}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none appearance-none bg-white transition-all cursor-pointer"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none appearance-none bg-white transition-all cursor-pointer text-gray-900"
               >
                 <option value="">Select an option</option>
                 <option value="1">1 copy</option>
@@ -255,7 +281,7 @@ export default function Home() {
                   onChange={handleChange}
                   min="0"
                   step="0.01"
-                  className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-gray-900 placeholder:text-gray-400"
                 />
               </div>
             </div>
@@ -274,7 +300,7 @@ export default function Home() {
                 value={formData.deliveryAddress}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none transition-all"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none transition-all text-gray-900 placeholder:text-gray-400"
               />
             </div>
 
@@ -301,7 +327,16 @@ export default function Home() {
           </p>
           <div className="mt-6 pt-6 border-t border-blue-500/30">
             <p className="text-sm opacity-90">
-              Made with ❤️ by Austin Ho | 100% for Charity
+              Website created with ❤️ by{" "}
+              <a
+                href="https://sohanthink.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-blue-200 transition-colors"
+              >
+                sohanthink.com
+              </a>{" "}
+              | 100% for Charity
             </p>
           </div>
         </div>
