@@ -34,18 +34,24 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-blue-50">
       {/* Page Header Section */}
-      <section className="bg-gradient-to-b from-blue-600 to-blue-700 text-white py-12 md:py-16">
+      <section className="bg-[#C8D2A9] text-gray-700 py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
               Wizard's Wrath
             </h1>
-            <p className="text-xl md:text-2xl font-semibold mb-4 text-blue-100">
+            <p className="text-xl md:text-2xl font-semibold mb-4">
               by Austin Ho
             </p>
-            <p className="text-base md:text-lg lg:text-xl text-blue-50 max-w-2xl mx-auto leading-relaxed">
+            <div className="inline-block bg-white/80 backdrop-blur-sm border-2 border-gray-800 px-6 py-3 rounded-lg mb-6 shadow-lg">
+              <p className="text-lg md:text-xl font-bold text-gray-800">
+                100% of proceeds go to{" "}
+                <span className="text-blue-700">Impact HK</span>
+              </p>
+            </div>
+            <p className="text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
               A magical adventure book created by a 10-year-old author from Hong
               Kong. Every purchase supports Impact HK, helping the homeless and
               those at risk of homelessness in our community.
@@ -55,7 +61,7 @@ export default function Home() {
       </section>
 
       {/* Welcome Banner Section */}
-      <section className="bg-white py-8 md:py-12">
+      <section className="py-8 md:py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto flex justify-center">
             <Image
@@ -72,8 +78,18 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-8 md:py-16">
+        <div className="text-center mb-4">
+          <div className="inline-block bg-blue-100 border-l-4 border-blue-600 p-4 rounded-r-lg mb-4">
+            <p className="text-base md:text-lg text-gray-700">
+              <span className="font-bold text-gray-700">100% of proceeds</span>{" "}
+              go to{" "}
+              <span className="font-semibold text-gray-600">Impact HK</span>
+            </p>
+          </div>
+        </div>
+
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-12 max-w-6xl mx-auto">
-          <div className="shrink-0 order-2 lg:order-1">
+          <div className="shrink-0 order-1 lg:order-1">
             <div className="relative">
               <Image
                 src="/austin.png"
@@ -85,7 +101,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="shrink-0 order-3 lg:order-3">
+          <div className="shrink-0 order-2 lg:order-2">
             <div className="relative">
               <Image
                 src="/bookcover.png"
@@ -95,23 +111,6 @@ export default function Home() {
                 className="rounded-xl shadow-xl border-4 border-white"
                 priority
               />
-            </div>
-          </div>
-          <div className="text-center lg:text-left order-1 lg:order-2 lg:flex-1 lg:max-w-md">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-600 mb-4">
-              Wizard's Wrath
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-3">
-              by Austin Ho
-            </p>
-            <div className="inline-block bg-blue-100 border-l-4 border-blue-600 p-4 rounded-r-lg mb-4">
-              <p className="text-base md:text-lg text-gray-700">
-                <span className="font-bold text-blue-700">
-                  100% of proceeds
-                </span>{" "}
-                go to{" "}
-                <span className="font-semibold text-blue-600">Impact HK</span>
-              </p>
             </div>
           </div>
         </div>
@@ -128,14 +127,14 @@ export default function Home() {
               I am a 10 year old student from Hong Kong who loves to draw, build
               and make things. With the recent tragic fire in Tai Po, I wanted
               to do something good, however small my contribution might be. So{" "}
-              <strong className="text-blue-600">
+              <strong className="text-gray-600">
                 100% of the sales from this book will be made to Impact HK
               </strong>
               , a charity actively supporting the homeless and those at risk of
               homelessness in my city.
             </p>
             <p>
-              <strong className="text-blue-700">Wizard's Wrath</strong>, my
+              <strong className="text-gray-700">Wizard's Wrath</strong>, my
               third book, is where magic and adventure come together. Every page
               has been lovingly drawn, coloured, and illustrated by me, centred
               around Miles, a spirited crocogator who dreams of heroism. When
@@ -184,13 +183,18 @@ export default function Home() {
       {/* Order Form Section */}
       <section className="container mx-auto px-4 py-12 md:py-16">
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-600 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-4">
             Order via PayMe
           </h2>
           <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg mb-8">
+            <p className="text-center text-gray-700 mb-2">
+              <span className="font-bold text-xl text-gray-700">
+                HK$100 per copy
+              </span>
+            </p>
             <p className="text-center text-gray-700">
               Kindly settle payment to{" "}
-              <span className="font-bold text-lg text-blue-600">62097957</span>{" "}
+              <span className="font-bold text-lg text-gray-600">62097957</span>{" "}
               to complete your order.
             </p>
           </div>
@@ -316,7 +320,7 @@ export default function Home() {
       </section>
 
       {/* Charity Info Footer */}
-      <footer className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-10 md:py-12 mt-16">
+      <footer className="bg-[#C8D2A9] text-gray-700 py-10 md:py-12 mt-16">
         <div className="container mx-auto px-4 text-center">
           <p className="text-xl md:text-2xl font-bold mb-3">
             Supporting Impact HK
