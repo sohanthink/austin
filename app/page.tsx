@@ -13,13 +13,50 @@ export default function Home() {
     deliveryAddress: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<
+    | { state: "idle"; message?: string }
+    | { state: "loading"; message?: string }
+    | { state: "success"; message: string }
+    | { state: "error"; message: string }
+  >({ state: "idle" });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    alert(
-      "Thank you for your order! Please complete payment to PayMe 62097957 to finalize your order."
-    );
+    setStatus({ state: "loading", message: "Sending your order..." });
+
+    try {
+      const res = await fetch("/api/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data?.ok) {
+        throw new Error(data?.error || "Failed to send order");
+      }
+
+      setStatus({
+        state: "success",
+        message:
+          "Thank you! Your order was sent. Please complete payment to PayMe 62097957 to finalize.",
+      });
+      setFormData({
+        firstName: "",
+        lastName: "",
+        phoneNumber: "",
+        numberOfCopies: "",
+        donationAmount: "",
+        deliveryAddress: "",
+      });
+    } catch (error) {
+      console.error("Order submit error:", error);
+      setStatus({
+        state: "error",
+        message: "Sorry, something went wrong. Please try again.",
+      });
+    }
   };
 
   const handleChange = (
@@ -199,6 +236,20 @@ export default function Home() {
             </p>
           </div>
 
+          {status.state !== "idle" && status.message && (
+            <div
+              className={`mb-6 rounded-lg border px-4 py-3 text-sm ${
+                status.state === "success"
+                  ? "border-green-200 bg-green-50 text-green-700"
+                  : status.state === "error"
+                  ? "border-red-200 bg-red-50 text-red-700"
+                  : "border-blue-200 bg-blue-50 text-blue-700"
+              }`}
+            >
+              {status.message}
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name Fields */}
             <div>
@@ -311,9 +362,14 @@ export default function Home() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-6 rounded-lg text-lg uppercase tracking-wide transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              disabled={status.state === "loading"}
+              className={`w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-6 rounded-lg text-lg uppercase tracking-wide transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 ${
+                status.state === "loading"
+                  ? "opacity-70 cursor-not-allowed"
+                  : ""
+              }`}
             >
-              Submit
+              {status.state === "loading" ? "Sending..." : "Submit"}
             </button>
           </form>
         </div>
