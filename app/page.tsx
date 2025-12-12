@@ -85,7 +85,7 @@ export default function Home() {
             <div className="inline-block bg-white/80 backdrop-blur-sm border-2 border-gray-800 px-6 py-3 rounded-lg mb-6 shadow-lg">
               <p className="text-lg md:text-xl font-bold text-gray-800">
                 100% of proceeds go to{" "}
-                <span className="text-blue-700">Impact HK</span>
+                <span className="text-green-600">Impact HK</span>
               </p>
             </div>
             <p className="text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -116,7 +116,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-8 md:py-16">
         <div className="text-center mb-4">
-          <div className="inline-block bg-blue-100 border-l-4 border-blue-600 p-4 rounded-r-lg mb-4">
+          <div className="inline-block bg-blue-100 border-l-4 border-green-600 p-4 rounded-r-lg mb-4">
             <p className="text-base md:text-lg text-gray-700">
               <span className="font-bold text-gray-700">100% of proceeds</span>{" "}
               go to{" "}
@@ -181,7 +181,7 @@ export default function Home() {
               an adventurous quest. They face dangerous portals, spooky
               skeletons, and encounter a mysterious realm unlike any other.
             </p>
-            <p className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg italic">
+            <p className="bg-blue-50 border-l-4 border-green-600 p-4 rounded-r-lg italic">
               I hope this comic will invite young readers to discover the true
               strength that lies in friendship, courage, and a dash of magic.
               Please support my project and be a hero today!
@@ -223,7 +223,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-4">
             Order via PayMe
           </h2>
-          <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg mb-8">
+          <div className="bg-blue-50 border-l-4 border-green-600 p-4 rounded-r-lg mb-8">
             <p className="text-center text-gray-700 mb-2">
               <span className="font-bold text-xl text-gray-700">
                 HK$100 per copy
